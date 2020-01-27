@@ -2,38 +2,41 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Brincando com o Tone JS</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>JS Music Board</title>
+
 		<link rel="stylesheet" href="css/style.css">
-		<!-- <meta name="viewport" content=""> -->
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 		<header>
 			<p id="altura" onclick="riff1();">4</p>
 		</header>
+
 		<div class="flex-conteiner">
 			<div class="teclado">
 				<div class="brancas">
-					<div class="tecla tecla-branca" id="C"></div>
-					<div class="tecla tecla-branca" id="D"></div>
-					<div class="tecla tecla-branca" id="E"></div>
-					<div class="tecla tecla-branca" id="F"></div>
-					<div class="tecla tecla-branca" id="G"></div>
-					<div class="tecla tecla-branca" id="A"></div>
-					<div class="tecla tecla-branca" id="B"></div>
-					<!-- <div class="tecla tecla-branca"></div> -->
+					<div class="tecla tecla-branca" id="C">A</div>
+					<div class="tecla tecla-branca" id="D">S</div>
+					<div class="tecla tecla-branca" id="E">D</div>
+					<div class="tecla tecla-branca" id="F">F</div>
+					<div class="tecla tecla-branca" id="G">G</div>
+					<div class="tecla tecla-branca" id="A">H</div>
+					<div class="tecla tecla-branca" id="B">J</div>
 				</div>
+
 				<div class="pretas">
-					<div class="tecla tecla-preta" id="C#"></div>
-					<div class="tecla tecla-preta" id="D#"></div>
-					<div class="tecla tecla-preta" id="F#"></div>
-					<div class="tecla tecla-preta" id="G#"></div>
-					<div class="tecla tecla-preta" id="A#"></div>
+					<div class="tecla tecla-preta" id="C#">W</div>
+					<div class="tecla tecla-preta" id="D#">E</div>
+					<div class="tecla tecla-preta" id="F#">T</div>
+					<div class="tecla tecla-preta" id="G#">Y</div>
+					<div class="tecla tecla-preta" id="A#">U</div>
 				</div>
 			</div>
 		</div>
 
 		<script src="js/Tone.js"></script>
+
 		<script>
 			var dist = new Tone.Distortion().toMaster();
 			// var synth = new Tone.PolySynth(3, Tone.Synth).connect(dist);
@@ -48,6 +51,7 @@
 					freq = 100;
 				}
 			}, 100);
+
 			function riff1(){
 				synth.triggerAttackRelease('C4', 0.1);
 				synth.triggerAttackRelease('E4', 0.1, 0.5);
@@ -69,7 +73,7 @@
 				synth.triggerAttackRelease(nota+altura,"8n");
 			};
 			
-			document.addEventListener('keypress',function(event){
+			document.addEventListener('keypress', function(event){
 				
 				event.preventDefault();
 				// console.log(event.keyCode);
