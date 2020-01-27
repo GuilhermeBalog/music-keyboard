@@ -6,6 +6,7 @@
 
 html, body{
 	height: 100%;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .flex-conteiner{
@@ -13,7 +14,6 @@ html, body{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: Arial, Helvetica, sans-serif;
 	background-color: #262626;
 }
 
@@ -40,10 +40,11 @@ html, body{
 	color: #424242;
 	cursor: pointer;
 	background-color: #ffffff;
+	user-select: none;
 }
 
 .tecla-branca:hover{
-	background-color: lightgrey;
+	background-color: lightgrey !important;
 }
 
 .pretas{
@@ -67,10 +68,11 @@ html, body{
 	align-items: flex-end;
 
 	cursor: pointer;
+	user-select: none;
 }
 
 .tecla-preta:hover{
-	background-color: black;
+	background-color: black !important;
 }
 
 .tecla-preta:nth-child(1){
@@ -187,4 +189,26 @@ html, body{
 	.tecla-preta:nth-child(5){
 		margin-left: 10.5px;
 	}
+}
+
+footer{
+	position: fixed;
+	bottom: 0;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+footer a{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: #cecece;
+	text-decoration: none;
+}
+
+footer img{
+	height: 3em;
+	margin-right: 10px;
 }
