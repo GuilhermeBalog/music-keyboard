@@ -4,15 +4,11 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>JS Music Board</title>
+		<title>JS Music Keyboard</title>
 
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-		<header>
-			<p id="altura" onclick="riff1();">4</p>
-		</header>
-
 		<div class="flex-conteiner">
 			<div class="teclado">
 				<div class="brancas">
@@ -36,146 +32,6 @@
 		</div>
 
 		<script src="js/Tone.js"></script>
-
-		<script>
-			var dist = new Tone.Distortion().toMaster();
-			// var synth = new Tone.PolySynth(3, Tone.Synth).connect(dist);
-			// var synth = new Tone.Synth().connect(dist);
-			var synth = new Tone.PolySynth().toMaster();
-			//synth.triggerAttackRelease("C4","8n");
-			var freq = 100;
-
-			setInterval(function(){
-				freq += 30;
-				if(freq >= 500){
-					freq = 100;
-				}
-			}, 100);
-
-			function riff1(){
-				synth.triggerAttackRelease('C4', 0.1);
-				synth.triggerAttackRelease('E4', 0.1, 0.5);
-				synth.triggerAttackRelease('G4', 0.1, 0.75);
-				synth.triggerAttackRelease('B4', 0.1, 1);
-				synth.triggerAttackRelease('D5', 0.1, 1.25);
-				synth.triggerAttackRelease('B4', 0.1, 1.5);
-				synth.triggerAttackRelease('G4', 0.1, 1.75);
-				synth.triggerAttackRelease('E4', 0.1, 2);
-				synth.triggerAttackRelease('C4', 0.1, 2.25);
-			}
-
-			/*setInterval(function(){
-				synth.triggerAttackRelease(freq,"8n");
-			}, 50);*/
-			var altura = 4;
-			document.querySelectorAll(".tecla").onclick = function(){
-				var nota = this.id;
-				synth.triggerAttackRelease(nota+altura,"8n");
-			};
-			
-			document.addEventListener('keypress', function(event){
-				
-				event.preventDefault();
-				// console.log(event.keyCode);
-
-				if(event.keyCode === 97){
-					/*synth.triggerAttackRelease(440, "8n");
-					synth.triggerAttackRelease(440*2, "8n");
-					synth.triggerAttackRelease(440*0.5, "8n");*/
-					synth.triggerAttackRelease("C"+altura,"8n");
-					document.getElementById('C').style.background = 'grey';
-					setTimeout(function(){document.getElementById('C').style.background = 'white';}, 50);
-
-				}
-				else if(event.keyCode == 119){
-					synth.triggerAttackRelease("C#"+altura,"8n");
-					document.getElementById('C#').style.background = 'black';
-					setTimeout(function(){document.getElementById('C#').style.background = '#333';}, 50);
-				}
-				else if(event.keyCode == 115){
-					synth.triggerAttackRelease("D"+altura,"8n");
-					document.getElementById('D').style.background = 'grey';
-					setTimeout(function(){document.getElementById('D').style.background = 'white';}, 50);
-				}
-				else if(event.keyCode == 101){
-					synth.triggerAttackRelease("D#"+altura,"8n");
-					document.getElementById('D#').style.background = 'black';
-					setTimeout(function(){document.getElementById('D#').style.background = '#333';}, 50);
-				}
-				else if(event.keyCode == 100){
-					synth.triggerAttackRelease("E"+altura,"8n");
-					document.getElementById('E').style.background = 'grey';
-					setTimeout(function(){document.getElementById('E').style.background = 'white';}, 50);
-				}
-				else if(event.keyCode == 102){
-					synth.triggerAttackRelease("F"+altura,"8n");
-					document.getElementById('F').style.background = 'grey';
-					setTimeout(function(){document.getElementById('F').style.background = 'white';}, 50);
-				}
-				else if(event.keyCode == 116){
-					synth.triggerAttackRelease("F#"+altura,"8n");
-					document.getElementById('F#').style.background = 'black';
-					setTimeout(function(){document.getElementById('F#').style.background = '#333';}, 50);
-				}
-				else if(event.keyCode == 103){
-					synth.triggerAttackRelease("G"+altura,"8n");
-					document.getElementById('G').style.background = 'grey';
-					setTimeout(function(){document.getElementById('G').style.background = 'white';}, 1000);
-				}
-				else if(event.keyCode == 121){
-					synth.triggerAttackRelease("G#"+altura,"8n");
-					document.getElementById('G#').style.background = 'black';
-					setTimeout(function(){document.getElementById('G#').style.background = '#333';}, 1000);
-				}
-				else if(event.keyCode == 104){
-					synth.triggerAttackRelease("A"+altura,"8n");
-					document.getElementById('A').style.background = 'grey';
-					setTimeout(function(){document.getElementById('A').style.background = 'white';}, 1000);
-				}
-				else if(event.keyCode == 117){
-					synth.triggerAttackRelease("A#"+altura,"8n");
-					document.getElementById('A#').style.background = 'black';
-					setTimeout(function(){document.getElementById('A#').style.background = '#333';}, 1000);
-				}
-				else if(event.keyCode == 106){
-					synth.triggerAttackRelease("B"+altura,"8n");
-					document.getElementById('B').style.background = 'grey';
-					setTimeout(function(){document.getElementById('B').style.background = 'white';}, 1000);
-				}
-				else if(event.keyCode == 107){
-					synth.triggerAttackRelease("C"+(altura+1),"8n");
-				}
-				else if(event.keyCode == 111){
-					synth.triggerAttackRelease("C#"+(altura+1),"8n");
-				}
-				else if(event.keyCode == 108){
-					synth.triggerAttackRelease("D"+(altura+1),"8n");
-				}
-				else if(event.keyCode == 112){
-					synth.triggerAttackRelease("D#"+(altura+1),"8n");
-				}
-				else if(event.keyCode == 231){
-					synth.triggerAttackRelease("E"+(altura+1),"8n");
-				}
-				else if(event.keyCode == 126){
-					synth.triggerAttackRelease("F"+(altura+1),"8n");
-				}
-				else if(event.keyCode >= 49 && event.keyCode <= 57){
-					document.querySelector("#altura").innerHTML = event.key;
-					altura = parseInt(event.key);
-				}
-
-			});
-			var loop = new Tone.Loop(function(time){
-				//synth.triggerAttackRelease("C2", "8n", time);
-				//synth.triggerAttackRelease("E3", "8n", time);
-				/*synth.triggerAttackRelease("G5", "8n", time);
-				synth.triggerAttackRelease("B5", "8n", time);
-				synth.triggerAttackRelease("D6", "8n", time);*/
-
-			}, "4n");
-			loop.start("1m").stop("4m");
-			Tone.Transport.start();
-		</script>
+		<script src="js/main.js"></script>
 	</body>
 </html>
