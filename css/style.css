@@ -47,6 +47,10 @@ html, body{
 	background-color: lightgrey !important;
 }
 
+.tecla-branca.active{
+	background-color: grey;
+}
+
 .pretas{
 	height: 50%;
 	display: flex;
@@ -73,6 +77,10 @@ html, body{
 
 .tecla-preta:hover{
 	background-color: black !important;
+}
+
+.tecla-preta.active{
+	background-color: black;
 }
 
 .tecla-preta:nth-child(1){
