@@ -2,14 +2,14 @@
 
 🎹 A simple keyboard made in with the [Tone.js](https://github.com/Tonejs/Tone.js) framework
 
-![Music Keyboard](screenshot.png)
+![Music Keyboard](thumb.png)
 
 ## Getting Started
 
-- Clone the repositorie with
+- Clone the repository with
 
 ```bash
-git clone https://github.com/GuilhermeBalog/minesweeper.git
+git clone https://github.com/GuilhermeBalog/js-music-keyboard.git
 ```
 
 - Open the `index.html` file on your favorite browser
